@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/overnatning-formular/static/css/main.7a124fa3.chunk.css",
-    "main.js": "/overnatning-formular/static/js/main.bf0151de.chunk.js",
-    "main.js.map": "/overnatning-formular/static/js/main.bf0151de.chunk.js.map",
-    "runtime-main.js": "/overnatning-formular/static/js/runtime-main.dd6fb9ab.js",
-    "runtime-main.js.map": "/overnatning-formular/static/js/runtime-main.dd6fb9ab.js.map",
-    "static/js/2.ef71c84c.chunk.js": "/overnatning-formular/static/js/2.ef71c84c.chunk.js",
-    "static/js/2.ef71c84c.chunk.js.map": "/overnatning-formular/static/js/2.ef71c84c.chunk.js.map",
-    "static/js/3.1d085d5d.chunk.js": "/overnatning-formular/static/js/3.1d085d5d.chunk.js",
-    "static/js/3.1d085d5d.chunk.js.map": "/overnatning-formular/static/js/3.1d085d5d.chunk.js.map",
-    "index.html": "/overnatning-formular/index.html",
-    "precache-manifest.270b501be044a371977006798f4e19a7.js": "/overnatning-formular/precache-manifest.270b501be044a371977006798f4e19a7.js",
-    "service-worker.js": "/overnatning-formular/service-worker.js",
-    "static/css/main.7a124fa3.chunk.css.map": "/overnatning-formular/static/css/main.7a124fa3.chunk.css.map",
-    "static/js/2.ef71c84c.chunk.js.LICENSE.txt": "/overnatning-formular/static/js/2.ef71c84c.chunk.js.LICENSE.txt"
+    "main.css": "/overnatning-formular-ostbv/static/css/main.7a124fa3.chunk.css",
+    "main.js": "/overnatning-formular-ostbv/static/js/main.bf0151de.chunk.js",
+    "main.js.map": "/overnatning-formular-ostbv/static/js/main.bf0151de.chunk.js.map",
+    "runtime-main.js": "/overnatning-formular-ostbv/static/js/runtime-main.b80d22b4.js",
+    "runtime-main.js.map": "/overnatning-formular-ostbv/static/js/runtime-main.b80d22b4.js.map",
+    "static/js/2.ef71c84c.chunk.js": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js",
+    "static/js/2.ef71c84c.chunk.js.map": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js.map",
+    "static/js/3.1d085d5d.chunk.js": "/overnatning-formular-ostbv/static/js/3.1d085d5d.chunk.js",
+    "static/js/3.1d085d5d.chunk.js.map": "/overnatning-formular-ostbv/static/js/3.1d085d5d.chunk.js.map",
+    "index.html": "/overnatning-formular-ostbv/index.html",
+    "precache-manifest.0b08943ab37d7a8be1c68cbb77323903.js": "/overnatning-formular-ostbv/precache-manifest.0b08943ab37d7a8be1c68cbb77323903.js",
+    "service-worker.js": "/overnatning-formular-ostbv/service-worker.js",
+    "static/css/main.7a124fa3.chunk.css.map": "/overnatning-formular-ostbv/static/css/main.7a124fa3.chunk.css.map",
+    "static/js/2.ef71c84c.chunk.js.LICENSE.txt": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.dd6fb9ab.js",
+    "static/js/runtime-main.b80d22b4.js",
     "static/js/2.ef71c84c.chunk.js",
     "static/css/main.7a124fa3.chunk.css",
     "static/js/main.bf0151de.chunk.js"
