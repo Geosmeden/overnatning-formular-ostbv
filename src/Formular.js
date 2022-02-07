@@ -299,7 +299,7 @@ function Formular() {
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={daLocale}>
       <Container maxWidth='sm'>
         <Typography variant='h6' gutterBottom>
-          Ansøg om midlertidig overnatning
+          Anmeld midlertidig overnatning
         </Typography>
         {formErrors.length > 0 && (
           <ErrorComp errors={formErrors} closeAlert={setFormErrors} />
@@ -357,7 +357,7 @@ function Formular() {
             type='number'
             size={6}
             id='ansoeger_tlf'
-            title='Ansøger tlf.'
+            title='Anmelder tlf.'
           />
           <TextInput size={6} id='ansoeger_mail' title='Ansøger mail' />
           <Grid item xs={12}></Grid>
