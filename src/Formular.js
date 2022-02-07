@@ -100,14 +100,14 @@ function Formular() {
 	  .integer("Maksimalt antal overnattende skal udfyldes med et tal"),
     ansoeger_navn: yup
       .string()
-      .required("Ansøger navn er et krævet felt"),
+      .required("Anmelder navn er et krævet felt"),
     ansoeger_tlf: yup
       .string()
-      .matches(/^[0-9]{8}$/, "Ansøger tlf. skal have 8 tal"),
+      .matches(/^[0-9]{8}$/, "Anmelder tlf. skal have 8 tal"),
 	ansoeger_mail: yup
       .string()
-	  .email("Ansøger mail skal være en valid email adresse")
-      .required("Ansøger mail er et krævet felt"),
+	  .email("Anmelder mail skal være en valid email adresse")
+      .required("Anmelder mail er et krævet felt"),
 	ansvarl_kontaktpers: yup
       .string()
       .required("Ansvarlig navn er et krævet felt"),
@@ -352,14 +352,14 @@ function Formular() {
             title='Maksimalt antal overnattende'
           />
           <DateTimeInputs />
-          <TextInput size={12} id='ansoeger_navn' title='Ansøger navn' />
+          <TextInput size={12} id='ansoeger_navn' title='Anmelder navn' />
           <TextInput
             type='number'
             size={6}
             id='ansoeger_tlf'
             title='Anmelder tlf.'
           />
-          <TextInput size={6} id='ansoeger_mail' title='Ansøger mail' />
+          <TextInput size={6} id='ansoeger_mail' title='Anmelder mail' />
           <Grid item xs={12}></Grid>
           <TextInput
             size={12}
