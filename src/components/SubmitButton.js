@@ -4,13 +4,13 @@ import { Grid, Button } from "@material-ui/core";
 export default function SubmitButton({ onClick }) {
   return (
     <>
-      <Grid item xs={4}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={2}></Grid>
+      <Grid item xs={8}>
         <Button variant='contained' color='primary' onClick={onClick}>
-          Send
+          Godkend og indsend anmeldelse om midlertidig overnatning
         </Button>
       </Grid>
-      <Grid item xs={4}></Grid>
+      <Grid item xs={2}></Grid>
     </>
   );
 }

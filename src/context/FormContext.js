@@ -27,6 +27,7 @@ let data = {
   y_coord: "",
   overnat_kontaktpers: "",
   overnat_kontakttlf: "",
+  bemaerkning: "",
 };
 
 const FormularContext = React.createContext([{}, () => {}, () => {}, () => {}]);

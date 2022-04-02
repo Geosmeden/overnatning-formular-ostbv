@@ -52,13 +52,13 @@ export default function ImageUpload({ setImageSrc }) {
 
   return (
     <>
-      <Grid item xs={5}>
+      <Grid item xs={10}>
         <Typography
-          style={{ color: "rgba(0, 0, 0, 0.54)" }}
+          style={{ color: "rgba(0, 0, 0, 0.74)" }}
           variant='subtitle1'
           component='h3'
         >
-          Vedhæft tegningsmateriale{" "}
+          Vedhæft dokumentation: Der skal vedhæftes driftsjournal og belægningsplan (Belægningsplan kun for overnatninger i rum til mere end 50 personer){" "}
         </Typography>
       </Grid>
       <Grid item xs={2}>

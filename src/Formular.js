@@ -62,7 +62,8 @@ function Formular() {
   const [state, setValue, setValues, resetForm] = useContext(FormularContext);
   const fileRef = React.useRef(null);
   const classes = useStyles();
-  const [data, setData] = useState({
+  const [data, setData] = useState({	
+    bemaerkning: "",
     ansoeger_mail: "",
     ansoeger_navn: "",
     ansoeger_tlf: "",
@@ -299,7 +300,7 @@ function Formular() {
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={daLocale}>
       <Container maxWidth='sm'>
         <Typography variant='h6' gutterBottom>
-          Anmeld midlertidig overnatning
+          Anmeldelse af midlertidig overnatning
         </Typography>
         {formErrors.length > 0 && (
           <ErrorComp errors={formErrors} closeAlert={setFormErrors} />
@@ -328,28 +329,39 @@ function Formular() {
             title='Overnatningstedets navn'
           />
           <TextInput size={12} id='overnat_lokaler' title='Lokaler (navn på de lokaler overnatningen foregår i)' />
-          <Grid item xs={6}>
+          <Grid item xs={8}>
             <Typography
-              style={{ color: "rgba(0, 0, 0, 0.54)" }}
+              style={{ color: "rgba(0, 0, 0, 0.74)" }}
               variant='subtitle1'
               component='h3'
             >
-              Overnatter mere end 50 personer{" "}
+              Overnatning for flere end 50 i samme rum{" "}
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <Checkbox
               color='primary'
               checked={state.overnat_over_150}
               onChange={handleCheckBox}
             />
           </Grid>
-          {state.overnat_over_150 && <ImageUpload setImageSrc={setImageSrc} />}
+          {state.overnat_over_150 && 
+		  <Grid item xs={12}>
+		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
+		  Overnatninger i rum til mere end 50 personer skal ske efter en belægningsplan, så det sikres, at de fornødne flugtvejspassager til udgangsdøre ikke spærres af sovepladser, inventar, bagage m.m. Belægningsplanen skal ophænges i overnatningslokalet. Belægningsplaner til rum for midlertidig overnatning kan udføres som beskrevet i bilag 11d og 13 til vejledningen.
+		  <p><a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Generel-vejledning/Bilag-11-abcde/211219-Bilag-11d-Vejledning-for-bel%C3%A6gningsplaner-ved-midlertidige-overnatning.pdf">Bilag 11d - Vejledning for belægningsplaner ved midlertidig overnatning</a></p>
+		  <p><a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Bilag-13-Udfaerdigelse-af-planer-i-forhold-til-brand/Bilag-13-Udfrdigelse-af-planer-i-forhold-til-brand-ver-11.pdf">Bilag 13: Udfærdigelse af planer i forhold til brand</a></p>
+		  </Typography>
+		  </Grid>
+		  }
+		  
+		  <ImageUpload setImageSrc={setImageSrc} />
+		  
           <TextInput
             size={12}
             id='overnat_antal'
             type='number'
-            title='Maksimalt antal overnattende'
+            title='Antal overnattende'
           />
           <DateTimeInputs />
           <TextInput size={12} id='ansoeger_navn' title='Anmelder navn' />
@@ -364,20 +376,36 @@ function Formular() {
           <TextInput
             size={12}
             id='ansvarl_kontaktpers'
-            title='Ansvarlig navn'
+            title='Navn på kontaktperson under overnatningen'
           />
           <TextInput
             type='number'
             size={6}
             id='ansvarl_kontaktlf'
-            title='Ansvarlig tlf.'
+            title='Tlf. til kontaktperson'
           />
           <TextInput
             size={6}
             id='ansvarl_kontaktmail'
-            title='Ansvarlig mail'
+            title='Mail til kontaktperson'
           />
-
+		  <TextInput
+            size={12}
+            id='bemaerkning'
+            title='Bemærkninger'
+          />
+		  <Grid item xs={12}>
+		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
+          Den ansvarlige for overnatningen forpligter sig til at overholde kravene i Bygningsreglementet § 152 a samt tilhørende vejledninger:
+		  <p>1.	Der er tale om kortvarigt ophold på op til 5 døgn.</p>
+		  <p>2.	Der er tilstrækkelige alarmerings-, evakuerings- og redningsmuligheder.</p>
+		  <p>3.	Der i byggeri, hvor der midlertidigt overnatter mere end 150 personer, skal være mindst én fast vågen vagt.</p>
+		  <p>4.	Der udarbejdes en driftsplan efter bestemmelserne i § 83, som sikrer, at der opnås et sikkerhedsniveau som beskrevet i § 82.</p>
+		  <p>5.	Der er udarbejdet ordensregler om forebyggelse af brand.</p>
+		  <p>6.	Der er udarbejdet en brand- og evakueringsinstruks.</p>
+		  <p>7.	Der er udarbejdet en belægningsplan for lokaler, hvor der overnatter mere end 50 personer.</p>
+		  </Typography>
+</Grid>
           <SubmitButton onClick={submitHandler} />
         </Grid>
       </Container>
