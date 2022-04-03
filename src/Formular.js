@@ -95,10 +95,10 @@ function Formular() {
     overnat_lokaler: yup.string().required("Lokaler er et krævet felt"),
 	overnat_over_150: yup.string().required(),
     overnat_antal: yup
-	  .number("Maksimalt antal overnattende skal udfyldes med et tal")
-	  .typeError("Maksimalt antal overnattende skal udfyldes med et tal")
-	  .positive("Maksimalt antal overnattende skal udfyldes med et positivt tal.")
-	  .integer("Maksimalt antal overnattende skal udfyldes med et tal"),
+	  .number("Antal overnattende skal udfyldes med et tal")
+	  .typeError("Antal overnattende skal udfyldes med et tal")
+	  .positive("Antal overnattende skal udfyldes med et positivt tal.")
+	  .integer("Antal overnattende skal udfyldes med et tal"),
     ansoeger_navn: yup
       .string()
       .required("Anmelder navn er et krævet felt"),
@@ -111,14 +111,14 @@ function Formular() {
       .required("Anmelder mail er et krævet felt"),
 	ansvarl_kontaktpers: yup
       .string()
-      .required("Ansvarlig navn er et krævet felt"),
+      .required("Navn på kontaktperson under overnatningen er et krævet felt"),
     ansvarl_kontaktlf: yup
       .string()
-      .matches(/^[0-9]{8}$/, "Ansvarlig tlf. skal have 8 tal"),
+      .matches(/^[0-9]{8}$/, "Tlf. til kontaktperson skal have 8 tal"),
     ansvarl_kontaktmail: yup
       .string()
-      .email("Ansvarlig mail skal være en valid email adresse")
-      .required("Ansvarlig mail er et krævet felt"),    
+      .email("Mail til kontaktperson skal være en valid email adresse")
+      .required("Mail til kontaktperson mail er et krævet felt"),    
     // overnat_tegning : yup.string().required(),
     // overnat_tegning_filnavn : yup.string().required(),
     overnat_slut_dato: yup.string().required(),
