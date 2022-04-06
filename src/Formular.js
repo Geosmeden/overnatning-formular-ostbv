@@ -94,6 +94,7 @@ function Formular() {
     overnat_navn: yup.string().required("Overnatningstedets navn er et krævet felt"),
     overnat_lokaler: yup.string().required("Lokaler er et krævet felt"),
 	overnat_over_150: yup.string().required(),
+	bemaerkning: yup.string(),
     overnat_antal: yup
 	  .number("Antal overnattende skal udfyldes med et tal")
 	  .typeError("Antal overnattende skal udfyldes med et tal")
@@ -125,6 +126,7 @@ function Formular() {
     overnat_slut_tid: yup.string().required(),
     overnat_start_dato: yup.string().required(),
     overnat_start_tid: yup.string().required(),
+	bemaerkning: yup.string(),
   });
 
   const [komkode, setKomkode] = useState("751|741|727|746");
