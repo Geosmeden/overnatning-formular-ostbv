@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import { Grid, Chip, Typography, IconButton } from "@material-ui/core";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import PhotoCameraIcon from "@material-ui/icons/CloudUploadRounded";
 import { FormularContext } from "../context/FormContext";
 
 const _substr = (str) => {
