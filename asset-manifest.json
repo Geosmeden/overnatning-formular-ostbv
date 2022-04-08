@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/overnatning-formular-ostbv/static/css/main.7a124fa3.chunk.css",
-    "main.js": "/overnatning-formular-ostbv/static/js/main.a72e7303.chunk.js",
-    "main.js.map": "/overnatning-formular-ostbv/static/js/main.a72e7303.chunk.js.map",
+    "main.js": "/overnatning-formular-ostbv/static/js/main.c4230771.chunk.js",
+    "main.js.map": "/overnatning-formular-ostbv/static/js/main.c4230771.chunk.js.map",
     "runtime-main.js": "/overnatning-formular-ostbv/static/js/runtime-main.b80d22b4.js",
     "runtime-main.js.map": "/overnatning-formular-ostbv/static/js/runtime-main.b80d22b4.js.map",
-    "static/js/2.ef71c84c.chunk.js": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js",
-    "static/js/2.ef71c84c.chunk.js.map": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js.map",
+    "static/js/2.afd0df98.chunk.js": "/overnatning-formular-ostbv/static/js/2.afd0df98.chunk.js",
+    "static/js/2.afd0df98.chunk.js.map": "/overnatning-formular-ostbv/static/js/2.afd0df98.chunk.js.map",
     "static/js/3.1d085d5d.chunk.js": "/overnatning-formular-ostbv/static/js/3.1d085d5d.chunk.js",
     "static/js/3.1d085d5d.chunk.js.map": "/overnatning-formular-ostbv/static/js/3.1d085d5d.chunk.js.map",
     "index.html": "/overnatning-formular-ostbv/index.html",
-    "precache-manifest.233fe62814d8072e595ca80386375c85.js": "/overnatning-formular-ostbv/precache-manifest.233fe62814d8072e595ca80386375c85.js",
+    "precache-manifest.d2d7c0bb6a517e2e8b21921b7bbd466f.js": "/overnatning-formular-ostbv/precache-manifest.d2d7c0bb6a517e2e8b21921b7bbd466f.js",
     "service-worker.js": "/overnatning-formular-ostbv/service-worker.js",
     "static/css/main.7a124fa3.chunk.css.map": "/overnatning-formular-ostbv/static/css/main.7a124fa3.chunk.css.map",
-    "static/js/2.ef71c84c.chunk.js.LICENSE.txt": "/overnatning-formular-ostbv/static/js/2.ef71c84c.chunk.js.LICENSE.txt"
+    "static/js/2.afd0df98.chunk.js.LICENSE.txt": "/overnatning-formular-ostbv/static/js/2.afd0df98.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b80d22b4.js",
-    "static/js/2.ef71c84c.chunk.js",
+    "static/js/2.afd0df98.chunk.js",
     "static/css/main.7a124fa3.chunk.css",
-    "static/js/main.a72e7303.chunk.js"
+    "static/js/main.c4230771.chunk.js"
   ]
 }
