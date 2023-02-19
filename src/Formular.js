@@ -350,9 +350,7 @@ function Formular() {
           {state.overnat_over_150 && 
 		  <Grid item xs={12}>
 		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
-		  Overnatninger i rum til mere end 50 personer skal ske efter en belægningsplan, så det sikres, at de fornødne flugtvejspassager til udgangsdøre ikke spærres af sovepladser, inventar, bagage m.m. Belægningsplanen skal ophænges i overnatningslokalet. Belægningsplaner til rum for midlertidig overnatning kan udføres som beskrevet i bilag 11d og 13 til vejledningen.
-		  <p><a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Generel-vejledning/Bilag-11-abcde/211219-Bilag-11d-Vejledning-for-bel%C3%A6gningsplaner-ved-midlertidige-overnatning.pdf">Bilag 11d - Vejledning for belægningsplaner ved midlertidig overnatning</a></p>
-		  <p><a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Bilag-13-Udfaerdigelse-af-planer-i-forhold-til-brand/Bilag-13-Udfrdigelse-af-planer-i-forhold-til-brand-ver-11.pdf">Bilag 13: Udfærdigelse af planer i forhold til brand</a></p>
+		  Overnatninger i rum til mere end 50 personer skal ske efter en belægningsplan, så det sikres, at de fornødne flugtvejspassager til udgangsdøre ikke spærres af sovepladser, inventar, bagage m.m. Belægningsplanen skal ophænges i overnatningslokalet. Belægningsplaner til rum for midlertidig overnatning kan udføres som beskrevet i <a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Bilag-11b--Praccepterede-lsninger-for-midlertidig-overnatning-i-bygninger--version-10.pdf">Bilag 11b: Præ-acceptable løsninger for midlertidige overnatninger i bygninger</a> – appendiks C: Belægningsplan
 		  </Typography>
 		  </Grid>
 		  }
@@ -365,6 +363,11 @@ function Formular() {
             type='number'
             title='Antal overnattende'
           />
+		  <Grid item xs={12}>
+		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
+          I bygningsafsnit, der indrettes til flere end 150 overnattende personer, skal der være en fast, vågen vagt, som skal foretage inspektionsrunder.
+		  </Typography>
+		  </Grid>
           <DateTimeInputs />
           <TextInput size={12} id='ansoeger_navn' title='Anmelder navn' />
           <TextInput
@@ -398,14 +401,19 @@ function Formular() {
           />
 		  <Grid item xs={12}>
 		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
-          Den ansvarlige for overnatningen forpligter sig til at overholde kravene i Bygningsreglementet § 152 a samt tilhørende vejledninger:
-		  <p>1.	Der er tale om kortvarigt ophold på op til 5 døgn.</p>
-		  <p>2.	Der er tilstrækkelige alarmerings-, evakuerings- og redningsmuligheder.</p>
-		  <p>3.	Der i byggeri, hvor der midlertidigt overnatter mere end 150 personer, skal være mindst én fast vågen vagt.</p>
-		  <p>4.	Der udarbejdes en driftsplan efter bestemmelserne i § 83, som sikrer, at der opnås et sikkerhedsniveau som beskrevet i § 82.</p>
-		  <p>5.	Der er udarbejdet ordensregler om forebyggelse af brand.</p>
-		  <p>6.	Der er udarbejdet en brand- og evakueringsinstruks.</p>
-		  <p>7.	Der er udarbejdet en belægningsplan for lokaler, hvor der overnatter mere end 50 personer.</p>
+          Den ansvarlige for overnatningen forpligter sig til følgende:
+		  <ul>
+		  <li>At der rettidigt er fremsendt meddelelse om den midlertidige overnatning til kommunalbestyrelsen.</li>
+		  <li>At den midlertidige overnatning sker i overensstemmelse med retningslinjerne i <a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Bilag-11b--Praccepterede-lsninger-for-midlertidig-overnatning-i-bygninger--version-10.pdf">Bilag 11b: Præ-acceptable løsninger for midlertidige overnatninger i bygninger</a> eller retningslinjerne i byggeriets DKV-plan for midlertidig overnatning.</li>
+		  <li>At ordensregler er udarbejdet som opslag, der er ophængt i tilknytning til brand- og evakueringsinstruksen.</li>
+		  <li>At der for overnatninger med børn og unge under 18 år er en myndig person til stede ved overnatningen og at den eller de myndige personer ved midlertidig overnatning for børn og unge under 18 år er bekendt med ordensreglerne.</li>
+		  <li>At der er udarbejdet og ophængt brand- og evakueringsinstruks.</li>
+		  <li>At der er udarbejdet driftsjournal, som kontrolleres hver dag ved overnatning over flere døgn. </li>
+		  <li>At der er udarbejdet og ophængt en belægningsplan for overnatningslokaler til flere end 50 overnattende personer.</li>
+		  <li>At der i bygningsafsnit, der indrettes til flere end 150 overnattende personer, etableres fast, vågen vagt, som skal foretage inspektionsrunder.</li>
+		  <li>At den/de faste vågne, vagter er instrueret om deres opgave, alarmeringsmuligheder, brand- og evakueringsinstruks mv.</li>
+		  <li>At hvis ansvar er overdraget til tredjepart, skal det sikres at den ansvarlige for overnatningen har modtaget kopi af anmeldelsen og godkendt indholdet.</li>
+		  </ul>
 		  </Typography>
 </Grid>
           <SubmitButton onClick={submitHandler} />
