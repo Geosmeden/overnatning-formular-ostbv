@@ -355,8 +355,7 @@ function Formular() {
 		  </Grid>
 		  }
 		  
-		  <ImageUpload setImageSrc={setImageSrc} />
-		  
+		  	  
           <TextInput
             size={12}
             id='overnat_antal'
@@ -399,6 +398,9 @@ function Formular() {
             id='bemaerkning'
             title='Bemærkninger'
           />
+		  
+		  <ImageUpload setImageSrc={setImageSrc} />
+		  
 		  <Grid item xs={12}>
 		  <Typography style={{ color: "rgba(0, 0, 0, 0.74)", fontSize: "0.9em" }}>
           Den ansvarlige for overnatningen forpligter sig til følgende:

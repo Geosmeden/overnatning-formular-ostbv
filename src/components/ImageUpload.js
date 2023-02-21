@@ -57,11 +57,12 @@ export default function ImageUpload({ setImageSrc }) {
           style={{ color: "rgba(0, 0, 0, 0.74)" }}
           variant='subtitle1'
           component='h3'
-        >
-          Vedhæft dokumentation: Der skal vedhæftes driftsjournal og belægningsplan (Belægningsplan kun for overnatninger i rum til mere end 50 personer){" "}
+        >		
+          Vedhæft dokumentation: Der kan her vedhæftes driftsjournal og belægningsplan {" "}
         </Typography>
       </Grid>
-      <Grid item xs={2}>
+      
+	  <Grid item xs={2}>
         <label htmlFor='upload-photo'>
           <input
             style={{ display: "none" }}
