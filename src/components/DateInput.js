@@ -6,6 +6,7 @@ import { FormularContext } from "../context/FormContext";
 
 function DateInput({ size, id, title, label }) {
   const [state, setValue, setValues] = useContext(FormularContext);
+
   const handleDateChange = (date) => {
     if (date < new Date()) return;
 
@@ -13,7 +14,12 @@ function DateInput({ size, id, title, label }) {
       case "overnat_start_dato":
         let startDate = new Date(date);
         let slutDato = new Date(state.overnat_slut_dato);
-        let endDate = slutDato < startDate ? startDate : slutDato;
+
+        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
+        let maxEndDate = new Date(startDate);
+        maxEndDate.setDate(startDate.getDate() + 7);
+        let endDate = slutDato > maxEndDate ? maxEndDate : slutDato;
+
         setValues({
           overnat_start_dato: startDate,
           overnat_slut_dato: endDate,
@@ -23,8 +29,14 @@ function DateInput({ size, id, title, label }) {
         break;
       case "overnat_slut_dato":
         if (new Date(date) < new Date(state.overnat_start_dato)) return;
-        setValue("overnat_slut_dato", new Date(date));
-        setValue("overnat_slut_tid", new Date(date));
+
+        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
+        let maxEndDateSlut = new Date(state.overnat_start_dato);
+        maxEndDateSlut.setDate(state.overnat_start_dato.getDate() + 7);
+        let endDateSlut = new Date(date) > maxEndDateSlut ? maxEndDateSlut : new Date(date);
+
+        setValue("overnat_slut_dato", endDateSlut);
+        setValue("overnat_slut_tid", endDateSlut);
         break;
       default:
         return;
@@ -84,7 +96,7 @@ export default function DateTimeInputs() {
     <>
       <DateInput id='overnat_start_dato' title='Start dato' size={6} />
       <TimeInput id='overnat_start_tid' title='Start tidspunkt' size={6} />
-      <DateInput id='overnat_slut_dato' title='Slut dato' size={6} />
+      <DateInput id='overnat_slut_dato' title='Slut dato (max. 7 døgn)' size={6} />
       <TimeInput id='overnat_slut_tid' title='Slut tidspunkt' size={6} />
     </>
   );
