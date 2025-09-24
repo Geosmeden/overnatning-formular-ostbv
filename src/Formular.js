@@ -406,7 +406,7 @@ function Formular() {
           Den ansvarlige for overnatningen forpligter sig til følgende:
 		  <ul>
 		  <li>At der rettidigt er fremsendt meddelelse om den midlertidige overnatning til kommunalbestyrelsen.</li>
-		  <li>At den midlertidige overnatning sker i overensstemmelse med retningslinjerne i <a href="https://bygningsreglementet.dk/-/media/Br/Kap_5_Brand/Vejledninger/Bilag-11b--Praccepterede-lsninger-for-midlertidig-overnatning-i-bygninger--version-10.pdf">Bilag 11b: Præ-acceptable løsninger for midlertidige overnatninger i bygninger</a> eller retningslinjerne i byggeriets DKV-plan for midlertidig overnatning.</li>
+		  <li>At den midlertidige overnatning sker i overensstemmelse med retningslinjerne i <a href="https://www.bygningsreglementet.dk/media/vy1d0uyr/bilag-11bversion-11-uden-ndringsmarkeringer-a.pdf">Bilag 11b: Præ-acceptable løsninger for midlertidige overnatninger i bygninger</a> eller retningslinjerne i byggeriets DKV-plan for midlertidig overnatning.</li>
 		  <li>At ordensregler er udarbejdet som opslag, der er ophængt i tilknytning til brand- og evakueringsinstruksen.</li>
 		  <li>At der for overnatninger med børn og unge under 18 år er en myndig person til stede ved overnatningen og at den eller de myndige personer ved midlertidig overnatning for børn og unge under 18 år er bekendt med ordensreglerne.</li>
 		  <li>At der er udarbejdet og ophængt brand- og evakueringsinstruks.</li>
