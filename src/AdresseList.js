@@ -18,16 +18,52 @@ export default function AdresseList({
     setDoSearch(false);
   };
 
-  useEffect(() => {
-    if (searchTerm.length < 3) return;
-    const url = `https://dawa.aws.dk/adgangsadresser/autocomplete?q=${searchTerm}&type=adgangsadresse&side=1&per_side=105&noformat=1&kommunekode=${komkode}&srid=25832`;
-    console.log(url);
-    fetch(url).then((res) => {
-      res.json().then((data) => {
-        setAdresses(data);
+const BASE = "https://api.danskadresseapi.dk/dawa";
+const API_KEY = "sk_live_E5cOCBtotK0JJK5DqqEfj4gzcW7BlqYI7FF1W1fYEwY";
+
+useEffect(() => {
+  if (searchTerm.length < 3) return;
+
+  const controller = new AbortController();
+
+  const timer = setTimeout(() => {
+    const url =
+      `${BASE}/autocomplete` +
+      `?q=${encodeURIComponent(searchTerm)}` +
+      `&kommunekode=${komkode}&srid=25832`;
+
+    fetch(url, {
+      headers: { Authorization: `Bearer ${API_KEY}` },
+      signal: controller.signal,
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Adresse-API fejlede: ${res.status}`);
+        return res.json();
+      })
+      .then((data) => setAdresses(data))
+      .catch((err) => {
+        if (err.name !== "AbortError") console.error(err);
       });
-    });
-  }, [searchTerm]);
+  }, 300);
+
+  return () => {
+    clearTimeout(timer);
+    controller.abort();
+  };
+}, [searchTerm, komkode]);
+
+
+
+  // useEffect(() => {
+    // if (searchTerm.length < 3) return;
+    // const url = `https://api.danskadresseapi.dk/dawa/autocomplete?q={searchTerm}&kommunekode=${komkode}&api_key=xxxx`;
+    // console.log(url);
+    // fetch(url).then((res) => {
+    //   res.json().then((data) => {
+    //     setAdresses(data);
+    //   });
+    // });
+  // }, [searchTerm]);
 
   let comps = adresses.map((item, index) => (
     <ListItem

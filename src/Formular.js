@@ -58,6 +58,13 @@ const formatedTimestamp = (d) => {
   return `${date} ${time}`;
 };
 
+const combineDateAndTime = (dateValue, timeValue) => {
+  const combined = new Date(dateValue);
+  const time = new Date(timeValue);
+  combined.setHours(time.getHours(), time.getMinutes(), 0, 0);
+  return combined;
+};
+
 function Formular() {
   const [state, setValue, setValues, resetForm] = useContext(FormularContext);
   const fileRef = React.useRef(null);
@@ -134,121 +141,35 @@ function Formular() {
   const [formErrors, setFormErrors] = useState([]);
   const [successMessage, setSuccessMessage] = useState(false);
 
-  // const handleInputChange = (e) => {};
-
-  // const { register, handleSubmit, watch, errors } = useForm();
-  // const onSubmit = (data) => console.log(data);
-  // const [selectedDate, setSelectedDate] = React.useState(new Date());
-
-  // const deleteImage = () => {
-  //   setData({
-  //     ...data,
-  //     overnat_tegning_filnavn: "",
-  //   });
-
-  //   setImageSrc("");
-  // };
-
-  // const handleDateChange = (date) => {
-  //   setSelectedDate(date);
-  // };
-
-  // const handleStartDate = (date) => {
-  //   let startDate = new Date(date);
-  //   let slutDato = new Date(data.overnat_slut_dato);
-  //   let endDate = slutDato < startDate ? startDate : slutDato;
-  //   console.log("startDate :", startDate, " , endDate : ", endDate);
-  //   setData({
-  //     ...data,
-  //     overnat_start_dato: startDate.toISOString(),
-  //     overnat_slut_dato: endDate.toISOString(),
-  //   });
-  // };
-
-  // const handleStartTime = (date) => {
-  //   setData({
-  //     ...data,
-  //     overnat_start_tid: new Date(date).toISOString(),
-  //   });
-  // };
-
-  // const handleEndDate = (date) => {
-  //   let endDate = new Date(date);
-  //   let startDate = new Date(data.overnat_start_dato);
-  //   setData({
-  //     ...data,
-  //     overnat_slut_dato: new Date(date).toISOString(),
-  //   });
-  // };
-
-  // const handleEndTime = (date) => {
-  //   setData({
-  //     ...data,
-  //     overnat_slut_tid: new Date(date).toISOString(),
-  //   });
-  // };
-
-  // const handleSelect = (e) => {
-  //   const [nr, val] = e.target.value.split("_");
-  //   console.log("kommune selected: ", e.target.value);
-  //   setData({
-  //     ...data,
-  //     overnat_kommune: e.target.value,
-  //     overnat_adresse: "",
-  //     the_geom: "",
-  //   });
-  //   setKomkode(nr);
-  //   setAdresseTekst("");
-  // };
-
   const setAdressData = (adress) => {
-    //console.log(`[${adress.adgangsadresse.x},${adress.adgangsadresse.x}]`);
-    // if (adress === "") {
-    //   setData({
-    //     ...data,
-    //     overnat_adresse: "",
-    //     the_geom: "",
-    //   });
-    // } else {
-    //   setData({
-    //     ...data,
-    //     overnat_adresse: adress.tekst,
-    //     the_geom: `[${adress.adgangsadresse.x},${adress.adgangsadresse.y}]`, // TODO: post geometry
-    //   });
-    // }
-    //ST_setsrid(ST_MakePoint(lat,long),4326) as geom
-    //the_geom: `[${adress.adgangsadresse.x},${adress.adgangsadresse.y}]`,
+  //console.log(adress);
 
-    if (adress === "") {
-      setValues({
-        overnat_adresse: "",
-        overnat_postnr: "",
-        overnat_by: "",
-        the_geom: "",
-        x_coord: "",
-        y_coord: "",
-      });
-    } else {
-      let streetname = adress.tekst.split(",");
-      let adressname = streetname.length > 0 ? streetname[0] : adress.tekst;
-      setValues({
-        overnat_adresse: adressname,
-        overnat_postnr: adress.adgangsadresse.postnr,
-        overnat_by: adress.adgangsadresse.postnrnavn,
-        the_geom: `ST_setsrid(ST_MakePoint(${adress.adgangsadresse.x},${adress.adgangsadresse.y}),25832)`,
-        x_coord: adress.adgangsadresse.x,
-        y_coord: adress.adgangsadresse.y,
-      });
-    }
-  };
+  if (adress === "") {
+    setValues({
+      overnat_adresse: "",
+      overnat_postnr: "",
+      overnat_by: "",
+      the_geom: "",
+      x_coord: "",
+      y_coord: "",
+    });
+  } else {
+    const a = adress.data;
+    //console.log("x/y:", a.x, a.y);
 
-  // const handleFormData = (e) => {
-  //   console.log(e.target.id, ":", e.target.value);
-  //   setData({
-  //     ...data,
-  //     [e.target.id]: e.target.value,
-  //   });
-  // };
+    let streetname = adress.tekst.split(",");
+    let adressname = streetname.length > 0 ? streetname[0] : adress.tekst;
+    setValues({
+      overnat_adresse: adressname,
+      overnat_postnr: a.postnr,
+      overnat_by: a.postnrnavn,
+      the_geom: `ST_Transform(ST_SetSRID(ST_MakePoint(x,y),4326),25832)`,
+      x_coord: a.x,
+      y_coord: a.y,
+    });
+  }
+};
+
 
   const handleCheckBox = (e) => {
     console.log("handleCheckbox => ", e.target.value);
@@ -267,7 +188,15 @@ function Formular() {
     // console.log(data);
     const formData = {
       ...state,
-      ansoegn_indsendt: new Date(),
+      ansoegn_indsendt: new Date(),	  
+      overnat_start_tid: combineDateAndTime(
+        state.overnat_start_dato,
+        state.overnat_start_tid
+      ),
+      overnat_slut_tid: combineDateAndTime(
+        state.overnat_slut_dato,
+        state.overnat_slut_tid
+      ),
     };
     console.log("ansøgning", formData);
     schema

@@ -6,42 +6,78 @@ import { FormularContext } from "../context/FormContext";
 
 function DateInput({ size, id, title, label }) {
   const [state, setValue, setValues] = useContext(FormularContext);
-
+  
   const handleDateChange = (date) => {
-    if (date < new Date()) return;
+  if (date < new Date()) return;
 
-    switch (id) {
-      case "overnat_start_dato":
-        let startDate = new Date(date);
-        let slutDato = new Date(state.overnat_slut_dato);
+  switch (id) {
+    case "overnat_start_dato": {
+      const startDate = new Date(date);
+      const slutDato = new Date(state.overnat_slut_dato);
 
-        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
-        let maxEndDate = new Date(startDate);
-        maxEndDate.setDate(startDate.getDate() + 7);
-        let endDate = slutDato > maxEndDate ? maxEndDate : slutDato;
+      // Slutdato må højst være 7 dage efter startdato
+      const maxEndDate = new Date(startDate);
+      maxEndDate.setDate(startDate.getDate() + 7);
+      const endDate = slutDato > maxEndDate ? maxEndDate : slutDato;
 
-        setValues({
-          overnat_start_dato: startDate,
-          overnat_slut_dato: endDate,
-          overnat_start_tid: startDate,
-          overnat_slut_tid: endDate,
-        });
-        break;
-      case "overnat_slut_dato":
-        if (new Date(date) < new Date(state.overnat_start_dato)) return;
-
-        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
-        let maxEndDateSlut = new Date(state.overnat_start_dato);
-        maxEndDateSlut.setDate(state.overnat_start_dato.getDate() + 7);
-        let endDateSlut = new Date(date) > maxEndDateSlut ? maxEndDateSlut : new Date(date);
-
-        setValue("overnat_slut_dato", endDateSlut);
-        setValue("overnat_slut_tid", endDateSlut);
-        break;
-      default:
-        return;
+      setValues({
+        overnat_start_dato: startDate,
+        overnat_slut_dato: endDate,
+      });
+      break;
     }
-  };
+    case "overnat_slut_dato": {
+      if (new Date(date) < new Date(state.overnat_start_dato)) return;
+
+      // Slutdato må højst være 7 dage efter startdato
+      const maxEndDateSlut = new Date(state.overnat_start_dato);
+      maxEndDateSlut.setDate(state.overnat_start_dato.getDate() + 7);
+      const endDateSlut =
+        new Date(date) > maxEndDateSlut ? maxEndDateSlut : new Date(date);
+
+      setValue("overnat_slut_dato", endDateSlut);
+      break;
+    }
+    default:
+      return;
+  }
+};
+
+  //const handleDateChange = (date) => {
+    //if (date < new Date()) return;
+
+    //switch (id) {
+    //  case "overnat_start_dato":
+    //    let startDate = new Date(date);
+    //    let slutDato = new Date(state.overnat_slut_dato);
+
+        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
+    //    let maxEndDate = new Date(startDate);
+    //    maxEndDate.setDate(startDate.getDate() + 7);
+    //    let endDate = slutDato > maxEndDate ? maxEndDate : slutDato;
+
+    //    setValues({
+    //      overnat_start_dato: startDate,
+    //      overnat_slut_dato: endDate,
+    //      overnat_start_tid: startDate,
+    //      overnat_slut_tid: endDate,
+    //    });
+    //    break;
+    //  case "overnat_slut_dato":
+    //    if (new Date(date) < new Date(state.overnat_start_dato)) return;
+
+        // Ensure overnat_slut_dato is not more than 7 days later than overnat_start_dato
+    //    let maxEndDateSlut = new Date(state.overnat_start_dato);
+    //    maxEndDateSlut.setDate(state.overnat_start_dato.getDate() + 7);
+    //    let endDateSlut = new Date(date) > maxEndDateSlut ? maxEndDateSlut : new Date(date);
+
+    //    setValue("overnat_slut_dato", endDateSlut);
+    //    setValue("overnat_slut_tid", endDateSlut);
+    //    break;
+    //  default:
+    //    return;
+    //}
+  //};
   return (
     <Grid item xs={size}>
       <KeyboardDatePicker
