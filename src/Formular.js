@@ -155,7 +155,7 @@ function Formular() {
     });
   } else {
     const a = adress.data;
-    //console.log("x/y:", a.x, a.y);
+    ///console.log("x/y:", a.x, a.y);
 
     let streetname = adress.tekst.split(",");
     let adressname = streetname.length > 0 ? streetname[0] : adress.tekst;
@@ -163,7 +163,7 @@ function Formular() {
       overnat_adresse: adressname,
       overnat_postnr: a.postnr,
       overnat_by: a.postnrnavn,
-      the_geom: `ST_Transform(ST_SetSRID(ST_MakePoint(x,y),4326),25832)`,
+      the_geom: `ST_SetSRID(ST_MakePoint(x,y),25832)`,
       x_coord: a.x,
       y_coord: a.y,
     });

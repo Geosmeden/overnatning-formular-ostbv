@@ -19,7 +19,7 @@ export default function AdresseList({
   };
 
 const BASE = "https://api.danskadresseapi.dk/dawa";
-const API_KEY = "sk_live_E5cOCBtotK0JJK5DqqEfj4gzcW7BlqYI7FF1W1fYEwY";
+const API_KEY = "sk_pub_-b-9op0iYFknPT7a1r9SonbsW17OP0hxwqPh1z7NP9E";
 
 useEffect(() => {
   if (searchTerm.length < 3) return;
