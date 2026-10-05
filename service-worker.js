@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/overnatning-formular-ostbv/precache-manifest.6cd0d6410819dde4502ebb5771cc6f06.js"
+  "/overnatning-formular-ostbv/precache-manifest.55925b70ce74e0cf5bb3514426b20cd5.js"
 );
 
 self.addEventListener('message', (event) => {
