@@ -54,17 +54,6 @@ useEffect(() => {
 
 
 
-  // useEffect(() => {
-    // if (searchTerm.length < 3) return;
-    // const url = `https://api.danskadresseapi.dk/dawa/autocomplete?q={searchTerm}&kommunekode=${komkode}&api_key=xxxx`;
-    // console.log(url);
-    // fetch(url).then((res) => {
-    //   res.json().then((data) => {
-    //     setAdresses(data);
-    //   });
-    // });
-  // }, [searchTerm]);
-
   let comps = adresses.map((item, index) => (
     <ListItem
       key={`${index}-${item.tekst}`}
